@@ -6,7 +6,8 @@ require "rails_helper"
 
 describe "as a user" do
   describe "when I visit my dashboard" do
-    it "sees a github section with five repositorie links" do
+    it "sees a github section with five repositorie links", :vcr do
+
       # require "pry"; binding.pry
       user = create(:user, token: ENV["GITHUB_OAUTH_TOKEN"])
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
