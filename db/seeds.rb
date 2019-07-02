@@ -116,3 +116,5 @@ m3_tutorial.videos.create!({
 })
 
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)
+
+User.create!(email: 'user@example.com', first_name: 'User', last_name: 'McUser', password:  "password", token: ENV['GITHUB_OAUTH_TOKEN'])
