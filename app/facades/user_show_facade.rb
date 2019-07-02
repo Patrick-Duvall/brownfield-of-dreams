@@ -4,14 +4,15 @@ class UserShowFacade
   end
 
   def repos
-    conn = Faraday.new("https://api.github.com/user/repos")  do |faraday|
-      faraday.headers["Authorization"] = "token 44b8e0b87e1ec4a452b104ff098358450477aaa0"
-      faraday.adapter Faraday.default_adapter
-    end
-    response = conn.get
-    parsed_response = JSON.parse(response.body, symbolize_names: true)[0..4]
-    repos = parsed_response.map do | repo_data|
+     parsed_response = service.get_repos
+     repos = parsed_response.map do | repo_data|
       Repo.new(repo_data)
     end
+  end
+
+  private
+
+  def service
+    @_service ||= GithubService.new(@user)
   end
 end

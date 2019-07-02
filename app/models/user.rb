@@ -8,8 +8,5 @@ class User < ApplicationRecord
   enum role: [:default, :admin]
   has_secure_password
 
-  def repos
-    require "pry"; binding.pry
-    conn = Faraday.new
-  end
+
 end
