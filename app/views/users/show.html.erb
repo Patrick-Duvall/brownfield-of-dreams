@@ -18,5 +18,13 @@
       <%= link_to repo.name, repo.url %>
         </section>
     <% end %>
+
+    <h1>Github Followers</h1>
+    <% user.followers.each do |follower| %>
+    <section class='follower'>
+        <%= link_to follower.name, follower.url %>
+    </section>
+
+    <% end %>
   </section>
 </section>
