@@ -5,7 +5,6 @@ class GithubService
   end
 
   def get_repos
-    require "pry"; binding.pry
     response = conn.get('/user/repos')
     parsed_response = JSON.parse(response.body, symbolize_names: true)[0..4]
   end
