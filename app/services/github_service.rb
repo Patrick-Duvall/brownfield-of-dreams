@@ -1,5 +1,5 @@
 class GithubService
-  
+
   def initialize(user)
     @user = user
   end
@@ -7,6 +7,11 @@ class GithubService
   def get_repos
     response = conn.get('/user/repos')
     parsed_response = JSON.parse(response.body, symbolize_names: true)[0..4]
+  end
+
+  def get_followers
+    response = conn.get('/user/followers')
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
   end
 
   private
