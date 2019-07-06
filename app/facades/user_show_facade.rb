@@ -23,6 +23,10 @@ class UserShowFacade
     end
   end
 
+  def bookmarked_videos
+    @user.videos
+  end
+
   private
 
   def service

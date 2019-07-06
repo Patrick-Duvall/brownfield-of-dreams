@@ -7,8 +7,11 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <section>
+  <section class="bookmarked-videos">
     <h1>Bookmarked Segments</h1>
+      <% user.bookmarked_videos.each do |video| %>
+        <p class="video"><%= link_to video.title, video_path(video) %></p>
+      <% end %>
   </section>
   <% if current_user.token %>
     <section class='github'>
