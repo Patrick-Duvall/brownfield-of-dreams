@@ -15,9 +15,15 @@ RSpec.describe "As a logged in user" do
 
       within ".bookmarked-videos" do
         expect(page).to have_content("Bookmarked Segments")
+<<<<<<< HEAD
         expect(page.all(".bookmarked_video").count).to eq(2)
         expect(page.all(".bookmarked_video")[0]).to have_link(video1.title)
         expect(page.all(".bookmarked_video")[1]).to have_link(video2.title)
+=======
+        expect(page.all(".bookmarked-video").count).to eq(2)
+        expect(page.all(".bookmarked-video")[0]).to have_link(video1.title)
+        expect(page.all(".bookmarked-video")[1]).to have_link(video2.title)
+>>>>>>> 1e3cdc44d55b12254f3871a65ea6ee78306b839a
       end
     end
   end

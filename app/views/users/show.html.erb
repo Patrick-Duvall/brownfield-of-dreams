@@ -10,7 +10,11 @@
   <section class="bookmarked-videos">
     <h1>Bookmarked Segments</h1>
       <% user.bookmarked_videos.each do |video| %>
+<<<<<<< HEAD
         <p class="bookmarked_video"><%= link_to video.title, tutorial_path(video.tutorial) %></p>
+=======
+        <p class="bookmarked-video"><%= link_to video.title, tutorial_path(video.tutorial) %></p>
+>>>>>>> 1e3cdc44d55b12254f3871a65ea6ee78306b839a
       <% end %>
   </section>
   <% if current_user.token %>
