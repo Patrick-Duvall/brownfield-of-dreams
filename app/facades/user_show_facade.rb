@@ -17,6 +17,13 @@ class UserShowFacade
    end
   end
 
+  def followed_user
+    parsed_response = service.get_following
+    parsed_response.map do |user_data|
+      GithubUser.new(user_data)
+    end
+  end
+
   private
 
   def service
