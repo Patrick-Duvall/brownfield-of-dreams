@@ -24,10 +24,7 @@ class UserShowFacade
   end
 
   def bookmarked_videos
-    user_videos = @user.user_videos
-    videos = user_videos.map do |user_video|
-      user_video.video
-    end
+    @user.videos
   end
 
   private
