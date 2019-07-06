@@ -1,8 +1,7 @@
 class GithubUser
-  attr_reader :github_name, :github_url
-  
-  def initialize(user_data)
-    @github_name = user_data[:login]
-    @github_url = user_data[:url]
+  attr_reader :name, :url
+  def initialize(follower_info)
+    @name = follower_info[:name]
+    @url = follower_info[:html_url]
   end
 end
