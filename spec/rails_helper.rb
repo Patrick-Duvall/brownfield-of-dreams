@@ -31,6 +31,7 @@ Capybara.configure do |config|
 end
 
 SimpleCov.start "rails"
+OmniAuth.config.test_mode = true
 
 Shoulda::Matchers.configure do |config|
     config.integrate do |with|
