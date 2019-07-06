@@ -1,6 +1,8 @@
 require "rails_helper"
+require "webmock_helper"
 describe "as a user" do
   describe "when I visit my dashboard" do
+
 
     after :each do
       OmniAuth.config.mock_auth[:github] = nil
@@ -9,29 +11,18 @@ describe "as a user" do
     it "I can connect via github" do
 
       OmniAuth.config.mock_auth[:github] = {
-        'provider' => 'github',
-        'uid' => '123545',
-        'user_info' => {
-          'name' => 'mockuser',
-          'image' => 'mock_user_thumbnail_url'
-        },
         'credentials' => {
-          'token' => 'mock_token',
-          'secret' => 'mock_secret'
+          'token' => 'mock_token'
         }}
       user = create(:user)
-      fixture = File.read("fixtures/user_followers.json")
-      stub_request(:get, "https://api.github.com/user/repos").
-         to_return(status: 200, body: fixture)
-      stub_request(:get, "https://api.github.com/user/followers").
-         to_return(status: 200, body: fixture)
       user_facade = UserShowFacade.new(user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit dashboard_path
       expect(page).to_not have_css(".github")
       click_link("Connect with GitHub")
       expect(current_path).to eq(dashboard_path)
-      expect(user.token).to eq('mock token')
+      save_and_open_page
+      expect(user.token).to eq('mock_token')
       expect(page).to have_css(".github")
     end
   end
