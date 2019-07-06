@@ -20,6 +20,11 @@ describe "as a user" do
           'secret' => 'mock_secret'
         }}
       user = create(:user)
+      fixture = File.read("fixtures/user_followers.json")
+      stub_request(:get, "https://api.github.com/user/repos").
+         to_return(status: 200, body: fixture)
+      stub_request(:get, "https://api.github.com/user/followers").
+         to_return(status: 200, body: fixture)
       user_facade = UserShowFacade.new(user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit dashboard_path
