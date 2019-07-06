@@ -10,7 +10,7 @@
   <section class="bookmarked-videos">
     <h1>Bookmarked Segments</h1>
       <% user.bookmarked_videos.each do |video| %>
-        <p class="video"><%= link_to video.title, video_path(video) %></p>
+        <p class="bookmarked_video"><%= link_to video.title, tutorial_path(video.tutorial) %></p>
       <% end %>
   </section>
   <% if current_user.token %>
