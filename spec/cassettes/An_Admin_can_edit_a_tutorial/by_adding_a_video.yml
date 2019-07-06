@@ -19,13 +19,13 @@ http_interactions:
       message: OK
     headers:
       Expires:
-      - Wed, 03 Jul 2019 16:47:35 GMT
+      - Sat, 06 Jul 2019 19:14:06 GMT
       Date:
-      - Wed, 03 Jul 2019 16:47:35 GMT
+      - Sat, 06 Jul 2019 19:14:06 GMT
       Cache-Control:
       - private, max-age=0, must-revalidate, no-transform
       Etag:
-      - '"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/Kn2ebssQjlm3p7Q34lHOkoIbYlM"'
+      - '"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/NKd2XHBwOBPfdoCXrIe8U-AVkKI"'
       Vary:
       - Origin
       - X-Origin
@@ -48,7 +48,7 @@ http_interactions:
       string: |
         {
          "kind": "youtube#videoListResponse",
-         "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/Kn2ebssQjlm3p7Q34lHOkoIbYlM\"",
+         "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/NKd2XHBwOBPfdoCXrIe8U-AVkKI\"",
          "pageInfo": {
           "totalResults": 1,
           "resultsPerPage": 1
@@ -56,7 +56,7 @@ http_interactions:
          "items": [
           {
            "kind": "youtube#video",
-           "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/S2wdpijfEDqHBVs-UW3svskolHw\"",
+           "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/rNBlttFvk8y-ZG3yURRbYtH20e8\"",
            "id": "J7ikFUlkP_k",
            "snippet": {
             "publishedAt": "2018-07-23T20:59:59.000Z",
@@ -107,7 +107,7 @@ http_interactions:
             "projection": "rectangular"
            },
            "statistics": {
-            "viewCount": "140",
+            "viewCount": "145",
             "likeCount": "2",
             "dislikeCount": "0",
             "favoriteCount": "0",
@@ -117,5 +117,5 @@ http_interactions:
          ]
         }
     http_version: 
-  recorded_at: Wed, 03 Jul 2019 16:45:54 GMT
+  recorded_at: Sat, 06 Jul 2019 19:12:21 GMT
 recorded_with: VCR 4.0.0

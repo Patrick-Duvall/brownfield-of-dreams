@@ -28,9 +28,12 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
+  get '/auth/:provider/callback', to: 'github/sessions#update'
+
   get '/dashboard', to: 'users#show'
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
+
 
   # Is this being used?
   get '/video', to: 'video#show'

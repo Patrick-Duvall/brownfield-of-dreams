@@ -5,7 +5,6 @@ class UserShowFacade
 
   def repos
      parsed_response = service.get_repos
-     # require "pry"; binding.pry
      repos = parsed_response.map do | repo_data|
       Repo.new(repo_data)
     end
