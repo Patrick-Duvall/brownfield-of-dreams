@@ -9,12 +9,9 @@ class UserShowFacade
   end
 
   def has_friended?(github_user)
-    # if User.find_by(github_id: github_user.github_id)
       @user.reload
       friend = User.find_by(github_id: github_user.github_id)
-      @user.friended_users.include?(friend)
-      # require "pry"; binding.pry
-  # end
+      @user.friended_users.include?(friend) || github_user.no_account?
   end
 
   def repos

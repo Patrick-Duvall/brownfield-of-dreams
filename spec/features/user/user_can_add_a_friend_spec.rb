@@ -12,6 +12,7 @@ describe "when " do
     visit dashboard_path
     within '.github-followers' do
       expect(page).to have_link("Add Patrick-Duvall to Friends")
+      expect(page).to_not have_link("Add tnodland to Friends")
     end
 
     expect(user1.friends.count).to eq(0)
