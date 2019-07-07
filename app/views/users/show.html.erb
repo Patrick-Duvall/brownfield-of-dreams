@@ -22,8 +22,8 @@
         </section>
       <% end %>
       <h1>Github Users You Follow</h1>
-      <% user.followed_user.each do |user| %>
-        <section class="followed_user">
+      <% user.following.each do |user| %>
+        <section class="following">
           <%= link_to user.name, user.url %>
         </section>
       <% end %>

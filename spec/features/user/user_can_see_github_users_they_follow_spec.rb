@@ -11,7 +11,7 @@ RSpec.describe "as a logged in user with a github token" do
 
       within ".github" do
         expect(page).to have_content("Github Users You Follow")
-        expect(page.all(".followed_user").count).to eq(2)
+        expect(page.all(".following").count).to eq(2)
       end
     end
   end
