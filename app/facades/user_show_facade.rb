@@ -3,6 +3,20 @@ class UserShowFacade
     @user = user
   end
 
+  def friends
+    @user.reload
+    @user.friended_users
+  end
+
+  def has_friended?(github_user)
+    # if User.find_by(github_id: github_user.github_id)
+      @user.reload
+      friend = User.find_by(github_id: github_user.github_id)
+      @user.friended_users.include?(friend)
+      # require "pry"; binding.pry
+  # end
+  end
+
   def repos
      parsed_response = service.get_repos
      repos = parsed_response.map do | repo_data|
