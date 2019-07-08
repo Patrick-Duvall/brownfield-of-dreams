@@ -2,23 +2,25 @@ require 'rails_helper'
 describe TutorialFacade do
   describe 'instance methods' do
     it 'can find the current video' do
+      user = create(:user)
       tutorial = create(:tutorial)
       video1 = create(:video, tutorial_id: tutorial.id)
       video2 = create(:video, tutorial_id: tutorial.id)
       video3 = create(:video, tutorial_id: tutorial.id)
 
-      presenter = TutorialFacade.new(tutorial, video2.id)
+      presenter = TutorialFacade.new(tutorial, video2.id, user)
 
       expect(presenter.current_video.id).to eq(video2.id)
     end
 
     it 'uses first video if video id not present' do
+      user = create(:user)
       tutorial = create(:tutorial)
       video1 = create(:video, tutorial_id: tutorial.id)
       video2 = create(:video, tutorial_id: tutorial.id)
       video3 = create(:video, tutorial_id: tutorial.id)
 
-      presenter = TutorialFacade.new(tutorial)
+      presenter = TutorialFacade.new(tutorial, user)
 
       expect(presenter.current_video.id).to eq(video1.id)
     end
