@@ -21,7 +21,6 @@ describe "as a user" do
       expect(page).to_not have_css(".github")
       click_link("Connect with GitHub")
       expect(current_path).to eq(dashboard_path)
-      save_and_open_page
       expect(user.token).to eq('mock_token')
       expect(page).to have_css(".github")
     end
