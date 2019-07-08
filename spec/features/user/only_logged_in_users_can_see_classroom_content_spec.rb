@@ -17,7 +17,6 @@ describe "only logged in users can see classroom content" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit tutorial_path(@class_tutorial)
       expect(page).to have_content(@class_video.title)
-      save_and_open_page
       expect(page).to have_content("Description")
       visit tutorial_path(@free_tutorial)
       expect(page).to have_content(@non_class_video.title)
@@ -29,7 +28,7 @@ describe "only logged in users can see classroom content" do
     it "does not let me see classroom content" do
       visit tutorial_path(@class_tutorial)
       expect(page).to_not have_content(@class_video.title)
-      expect(page).to have_content("Description")
+      expect(page).to_not have_content("Description")
       visit tutorial_path(@free_tutorial)
       expect(page).to have_content(@non_class_video.title)
       expect(page).to have_content("Description")
