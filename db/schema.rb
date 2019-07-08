@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 2019_07_07_184716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "followings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "followed_user_id"
-    t.index ["followed_user_id"], name: "index_followings_on_followed_user_id"
-    t.index ["user_id", "followed_user_id"], name: "index_followings_on_user_id_and_followed_user_id", unique: true
-    t.index ["user_id"], name: "index_followings_on_user_id"
-  end
-
   create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,13 +23,6 @@ ActiveRecord::Schema.define(version: 2019_07_07_184716) do
     t.index ["friended_user_id"], name: "index_friends_on_friended_user_id"
     t.index ["user_id", "friended_user_id"], name: "index_friends_on_user_id_and_friended_user_id", unique: true
     t.index ["user_id"], name: "index_friends_on_user_id"
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -95,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_07_07_184716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "token"
-    t.integer "uid"
     t.integer "github_id"
     t.index ["email"], name: "index_users_on_email"
   end
