@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/followers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - token <GITHUB_OAUTH_TOKEN>
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 08 Jul 2019 19:29:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Reset:
+      - '1562617778'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"56a2421f1e4273e55e7f08a82963ab42"
+      X-Oauth-Scopes:
+      - public_repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DB1F:2FEF:3196B2:4AB362:5D2399A2
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"strafe","id":15663890,"node_id":"MDQ6VXNlcjE1NjYzODkw","avatar_url":"https://avatars0.githubusercontent.com/u/15663890?v=4","gravatar_id":"","url":"https://api.github.com/users/strafe","html_url":"https://github.com/strafe","followers_url":"https://api.github.com/users/strafe/followers","following_url":"https://api.github.com/users/strafe/following{/other_user}","gists_url":"https://api.github.com/users/strafe/gists{/gist_id}","starred_url":"https://api.github.com/users/strafe/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/strafe/subscriptions","organizations_url":"https://api.github.com/users/strafe/orgs","repos_url":"https://api.github.com/users/strafe/repos","events_url":"https://api.github.com/users/strafe/events{/privacy}","received_events_url":"https://api.github.com/users/strafe/received_events","type":"User","site_admin":false},{"login":"Patrick-Duvall","id":35322570,"node_id":"MDQ6VXNlcjM1MzIyNTcw","avatar_url":"https://avatars1.githubusercontent.com/u/35322570?v=4","gravatar_id":"","url":"https://api.github.com/users/Patrick-Duvall","html_url":"https://github.com/Patrick-Duvall","followers_url":"https://api.github.com/users/Patrick-Duvall/followers","following_url":"https://api.github.com/users/Patrick-Duvall/following{/other_user}","gists_url":"https://api.github.com/users/Patrick-Duvall/gists{/gist_id}","starred_url":"https://api.github.com/users/Patrick-Duvall/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Patrick-Duvall/subscriptions","organizations_url":"https://api.github.com/users/Patrick-Duvall/orgs","repos_url":"https://api.github.com/users/Patrick-Duvall/repos","events_url":"https://api.github.com/users/Patrick-Duvall/events{/privacy}","received_events_url":"https://api.github.com/users/Patrick-Duvall/received_events","type":"User","site_admin":false},{"login":"tnodland","id":42710030,"node_id":"MDQ6VXNlcjQyNzEwMDMw","avatar_url":"https://avatars2.githubusercontent.com/u/42710030?v=4","gravatar_id":"","url":"https://api.github.com/users/tnodland","html_url":"https://github.com/tnodland","followers_url":"https://api.github.com/users/tnodland/followers","following_url":"https://api.github.com/users/tnodland/following{/other_user}","gists_url":"https://api.github.com/users/tnodland/gists{/gist_id}","starred_url":"https://api.github.com/users/tnodland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tnodland/subscriptions","organizations_url":"https://api.github.com/users/tnodland/orgs","repos_url":"https://api.github.com/users/tnodland/repos","events_url":"https://api.github.com/users/tnodland/events{/privacy}","received_events_url":"https://api.github.com/users/tnodland/received_events","type":"User","site_admin":false}]'
+    http_version: 
+  recorded_at: Mon, 08 Jul 2019 19:29:38 GMT
+recorded_with: VCR 4.0.0
