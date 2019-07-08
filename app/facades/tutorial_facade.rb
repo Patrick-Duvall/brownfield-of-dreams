@@ -1,7 +1,12 @@
 class TutorialFacade < SimpleDelegator
-  def initialize(tutorial, video_id = nil)
+  def initialize(tutorial, video_id = nil, current_user)
+    @user = current_user
     super(tutorial)
     @video_id = video_id
+  end
+
+  def videos_should_be_visible?
+    classroom == false || @user && classroom == true 
   end
 
   def current_video
