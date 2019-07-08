@@ -15,7 +15,12 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      flash[:error] = 'Username already exists'
+      if User.find_by(email: user_params["email"])
+        flash[:error] = 'That Email is already in use'
+      else
+        flash[:error] = 'Missing Credentials'
+      end
+      @user = User.new
       render :new
     end
   end
