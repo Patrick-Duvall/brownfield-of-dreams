@@ -1,0 +1,30 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - vendor/**/*
+    - spec/fixtures/**/*
+    - tmp/**/*
+    - db/**/*
+    - config/**/*
+    - script/**
+    - node_modules/**/*
+    - bin/**/*
+    - lib/tasks/**/*
+    - Rakefile
+
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Exclude:
+    - spec/**/*
+    - app/controllers/admin/api/v1/tutorial_sequencer_controller.rb

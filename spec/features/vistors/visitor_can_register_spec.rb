@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'vister can create an account', :js do
@@ -6,7 +8,6 @@ describe 'vister can create an account', :js do
     first_name = 'Jim'
     last_name = 'Bob'
     password = 'password'
-    password_confirmation = 'password'
 
     visit '/'
 
@@ -43,15 +44,15 @@ describe 'vister can create an account', :js do
 
     click_on 'Sign up now.'
 
-    fill_in 'user[email]', with: "example@mail.com"
-    fill_in 'user[first_name]', with: "name"
-    fill_in 'user[last_name]', with: "name"
-    fill_in 'user[password]', with: "password"
-    fill_in 'user[password_confirmation]', with: "password"
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[first_name]', with: 'name'
+    fill_in 'user[last_name]', with: 'name'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
 
     click_on 'Create Account'
 
-    expect(page).to have_content("That Email is already in use")
+    expect(page).to have_content('That Email is already in use')
   end
 
   it "can't create an account with missing fields" do
@@ -61,10 +62,10 @@ describe 'vister can create an account', :js do
 
     click_on 'Sign up now.'
 
-    fill_in 'user[first_name]', with: "name"
-    fill_in 'user[last_name]', with: "name"
-    fill_in 'user[password]', with: "password"
-    fill_in 'user[password_confirmation]', with: "password"
+    fill_in 'user[first_name]', with: 'name'
+    fill_in 'user[last_name]', with: 'name'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
 
     click_on 'Create Account'
 

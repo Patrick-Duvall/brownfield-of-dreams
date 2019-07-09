@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TutorialFacade < SimpleDelegator
-  def initialize(tutorial, video_id = nil, current_user)
+  def initialize(tutorial, current_user, video_id = nil)
     @user = current_user
     super(tutorial)
     @video_id = video_id
@@ -24,7 +26,7 @@ class TutorialFacade < SimpleDelegator
   end
 
   def play_next_video?
-    !(current_video.position >= maximum_video_position)
+    current_video.position < maximum_video_position
   end
 
   private

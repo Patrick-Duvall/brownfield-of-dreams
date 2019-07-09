@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Video < ApplicationRecord
   has_many :user_videos
   has_many :users, through: :user_videos
@@ -6,7 +8,7 @@ class Video < ApplicationRecord
 
   def self.update_positions
     all.each do |video|
-      video.update(position:  1) if video.position == nil
+      video.update(position: 1) if video.position.nil?
     end
   end
 end

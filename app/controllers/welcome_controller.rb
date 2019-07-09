@@ -1,9 +1,25 @@
+# frozen_string_literal: true
+
 class WelcomeController < ApplicationController
   def index
+    @tutorials = tagged_tutorial
+  end
+
+  private
+
+  def tagged_tutorial
     if params[:tag]
-      @tutorials = Tutorial.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 5)
+      Tutorial.tagged_with(tag).paginate(page: page, per_page: 5)
     else
-      @tutorials = Tutorial.all.paginate(:page => params[:page], :per_page => 5)
+      Tutorial.all.paginate(page: page, per_page: 5)
     end
+  end
+
+  def tag
+    params[:tag]
+  end
+
+  def page
+    params[:page]
   end
 end

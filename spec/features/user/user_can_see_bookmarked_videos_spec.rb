@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "As a logged in user" do
-  context "on my dashboard" do
-    it "should see all bookmarked videos" do
+RSpec.describe 'As a logged in user' do
+  context 'on my dashboard' do
+    it 'should see all bookmarked videos' do
       user = create(:user)
       tutorial = create(:tutorial)
       video1 = create(:video, tutorial: tutorial)
@@ -13,11 +15,11 @@ RSpec.describe "As a logged in user" do
 
       visit dashboard_path
 
-      within ".bookmarked-videos" do
-        expect(page).to have_content("Bookmarked Segments")
-        expect(page.all(".bookmarked-video").count).to eq(2)
-        expect(page.all(".bookmarked-video")[0]).to have_link(video1.title)
-        expect(page.all(".bookmarked-video")[1]).to have_link(video2.title)
+      within '.bookmarked-videos' do
+        expect(page).to have_content('Bookmarked Segments')
+        expect(page.all('.bookmarked-video').count).to eq(2)
+        expect(page.all('.bookmarked-video')[0]).to have_link(video1.title)
+        expect(page.all('.bookmarked-video')[1]).to have_link(video2.title)
       end
     end
   end
