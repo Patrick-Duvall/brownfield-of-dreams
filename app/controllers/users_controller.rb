@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def show
     render locals: {
@@ -15,11 +17,11 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      if User.find_by(email: user_params["email"])
-        flash[:error] = 'That Email is already in use'
-      else
-        flash[:error] = 'Missing Credentials'
-      end
+      flash[:error] = if User.find_by(email: user_params['email'])
+                        'That Email is already in use'
+                      else
+                        'Missing Credentials'
+                      end
       @user = User.new
       render :new
     end
@@ -30,5 +32,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendsController < ApplicationController
   def create
     user = current_user

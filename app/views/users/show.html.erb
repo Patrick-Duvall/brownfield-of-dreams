@@ -28,7 +28,7 @@
       <% user.following.each do |following| %>
         <section class="following">
           <%= link_to following.name, following.url %>
-          <% unless user.has_friended?(following) %>
+          <% unless user.friended?(following) %>
           <%= link_to "Add #{following.name} to Friends", friends_path('other_user_github_id' => following.github_id), method: 'post' %>
           <% end %>
         </section>
@@ -39,7 +39,7 @@
     <% user.followers.each do |follower| %>
       <section class='follower'>
       <%= link_to follower.name, follower.url %>
-      <% unless user.has_friended?(follower) %>
+      <% unless user.friended?(follower) %>
       <%= link_to "Add #{follower.name} to Friends", friends_path('other_user_github_id' => follower.github_id), method: 'post' %>
       <% end %>
       </section>
