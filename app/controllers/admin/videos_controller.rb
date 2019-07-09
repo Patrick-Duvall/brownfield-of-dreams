@@ -16,7 +16,7 @@ class Admin::VideosController < Admin::BaseController
       @tutorial.videos.create(new_video_params.merge(thumbnail: @thumbnail))
 
       flash[:success] = 'Successfully created video.'
-    rescue StandardError # Sorry about this. We should get more specific instead of swallowing all errors.
+    rescue StandardError
       flash[:error] = 'Unable to create video.'
     end
     redirect_to edit_admin_tutorial_path(id: @tutorial.id)
