@@ -2,10 +2,10 @@ require "rails_helper"
 require "webmock_helper"
 
 describe "when " do
-  it 'user can sign in' do
+  it 'user can add a friend in' do
     user1 = create(:user, token: ENV['GITHUB_OAUTH_TOKEN'] )
     user2 = create(:user, github_id: nil)
-    user3 = create(:user, github_id: 35322570, first_name: "Patrick", last_name: "Duvall") #Patrick
+    user3 = create(:user, github_id: 35322570, github_name: "Patrick-Duvall") #Patrick
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
@@ -24,7 +24,7 @@ describe "when " do
     expect(user1.friends.count).to eq(1)
 
     within '.friends' do
-      expect(page).to have_content("#{user3.first_name} #{user3.last_name}")
+      expect(page).to have_content(user3.github_name)
     end
 
     within '.github-followers' do
