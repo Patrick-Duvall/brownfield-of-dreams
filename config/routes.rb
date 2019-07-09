@@ -33,8 +33,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'github/sessions#update'
 
   get '/dashboard', to: 'users#show'
-  get '/about', to: 'about#show'
-  get '/get_started', to: 'get_started#show'
   resources :friends, only: [:create]
 
   # Is this being used?
