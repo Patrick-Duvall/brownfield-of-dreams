@@ -6,19 +6,25 @@ class TutorialFacade < SimpleDelegator
   end
 
   def videos_should_be_visible?
-    classroom == false || @user && classroom == true 
+    classroom == false || @user && classroom == true
   end
 
   def current_video
     if @video_id
       videos.find(@video_id)
+    elsif self.videos.empty?
+      Video.new(description: "Video Missing")
     else
       videos.first
     end
   end
 
   def next_video
-    videos[current_video_index + 1] || current_video
+    if self.videos.empty?
+      Video.new
+    else
+      videos[current_video_index + 1] || current_video
+    end
   end
 
   def play_next_video?
@@ -32,6 +38,10 @@ class TutorialFacade < SimpleDelegator
   end
 
   def maximum_video_position
-    videos.max_by { |video| video.position }.position
+    if self.videos.empty?
+      0
+    else
+      videos.max_by { |video| video.position }.position
+    end
   end
 end
