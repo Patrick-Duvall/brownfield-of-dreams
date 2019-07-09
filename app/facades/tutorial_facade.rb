@@ -12,7 +12,7 @@ class TutorialFacade < SimpleDelegator
   def current_video
     if @video_id
       videos.find(@video_id)
-    elsif self.videos.empty?
+    elsif no_videos?
       Video.new(description: "Video Missing")
     else
       videos.first
@@ -20,11 +20,7 @@ class TutorialFacade < SimpleDelegator
   end
 
   def next_video
-    if self.videos.empty?
-      Video.new
-    else
-      videos[current_video_index + 1] || current_video
-    end
+    no_videos? ? Video.new : videos[current_video_index + 1] || current_video
   end
 
   def play_next_video?
@@ -37,11 +33,11 @@ class TutorialFacade < SimpleDelegator
     videos.index(current_video)
   end
 
+  def no_videos?
+    self.videos.empty?
+  end
+
   def maximum_video_position
-    if self.videos.empty?
-      0
-    else
-      videos.max_by { |video| video.position }.position
-    end
+    no_videos? ? 0 : videos.max_by { |video| video.position }.position
   end
 end
