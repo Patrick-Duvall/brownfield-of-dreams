@@ -2,7 +2,7 @@ require "rails_helper"
 require "webmock_helper"
 
 describe "when " do
-  it 'user can sign in' do
+  it 'user can add a friend in' do
     user1 = create(:user, token: ENV['GITHUB_OAUTH_TOKEN'] )
     user2 = create(:user, github_id: nil)
     user3 = create(:user, github_id: 35322570, first_name: "Patrick", last_name: "Duvall") #Patrick
