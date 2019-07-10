@@ -17,14 +17,15 @@ describe "As a visitor" do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as first_name last_name")
     expect(page).to have_content("This account has not yet been activated. Please check your email")
-  end
-
-  it "lets me activate via email" do
+    user = User.last
+    expect(user.active?).to eq(false)
+    #Ask
     #implement mailer unit test
-    visit activation_path
+    visit activation_path(user)
     expect (current_path).to eq(dashboard_path)
     expect(page).to have_content("Thank you! Your account is now activated.")
     expect(page).to have_content("Status: Active")
+    expect(user.active?).to eq(true)
   end
 
 end
