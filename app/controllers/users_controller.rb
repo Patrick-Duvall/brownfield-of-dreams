@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       flash[:message1] = "Logged in as #{user['first_name']} #{user['last_name']}"
       flash[:message2] = "This account has not yet been activated. Please check your email"
+      ActivationMailer.activate(user, user.email).deliver_now
       redirect_to dashboard_path
     else
       err = user_exist? ? 'That Email is already in use' : 'Missing Credentials'
