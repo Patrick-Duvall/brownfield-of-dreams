@@ -5,6 +5,10 @@ class UserShowFacade
     @user = user
   end
 
+  def activation_status
+    @user.active? ? "Active" : "Inactive"
+  end
+
   def friends
     @user.reload
     @user.friended_users

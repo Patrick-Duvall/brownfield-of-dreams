@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :user do
+    get '/activation/:user_id', to: 'activation#update', as: 'activation'
+  end
+
+  post '/activation' => 'activation#create'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -24,4 +24,19 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+  describe "instance_methods" do
+    it ".active?" do
+      user1 = create(:user, active: false)
+      user2 = create(:user, active: true)
+      expect(user1.active?).to eq(false)
+      expect(user2.active?).to eq(true)
+
+    end
+    it ".activate" do
+      user = create(:user, active: false)
+      user.activate
+      expect(user.active?).to eq(true)
+
+    end
+  end
 end

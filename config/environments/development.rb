@@ -56,6 +56,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  #Config Mail Catcher
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.default_url_options = { :host => "localhost:3000"}
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
