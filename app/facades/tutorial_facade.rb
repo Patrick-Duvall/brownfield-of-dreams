@@ -15,7 +15,7 @@ class TutorialFacade < SimpleDelegator
     if @video_id
       videos.find(@video_id)
     elsif no_videos?
-      Video.new(description: "Video Missing")
+      Video.new(description: 'Video Missing')
     else
       videos.first
     end
@@ -36,10 +36,10 @@ class TutorialFacade < SimpleDelegator
   end
 
   def no_videos?
-    self.videos.empty?
+    videos.empty?
   end
 
   def maximum_video_position
-    no_videos? ? 0 : videos.max_by { |video| video.position }.position
+    no_videos? ? 0 : videos.max_by(&:position).position
   end
 end
