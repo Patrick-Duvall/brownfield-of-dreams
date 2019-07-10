@@ -38,7 +38,12 @@ class UserShowFacade
   end
 
   def bookmarked_videos
-    @user.videos
+    Video.joins(:user_videos, :tutorial)
+    .where("user_videos.user_id = #{@user.id}")
+    .includes(:tutorial)
+
+
+    # @user.videos
   end
 
   private
