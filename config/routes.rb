@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   namespace :user do
     get '/activation/:user_id', to: 'activation#update', as: 'activation'
   end
+  get '/invite', to: 'invite#new'
+  post '/invite', to: 'invite#create'
 
   post '/activation' => 'activation#create'
 

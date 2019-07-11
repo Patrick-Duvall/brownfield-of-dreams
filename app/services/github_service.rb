@@ -20,6 +20,11 @@ class GithubService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def single_user(github_handle)
+    response = conn.get("/users/#{github_handle}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
   def conn
