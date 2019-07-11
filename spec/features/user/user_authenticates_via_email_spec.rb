@@ -12,15 +12,15 @@ describe "As a visitor" do
     fill_in "user_last_name", with: 'last_name'
     fill_in "user_password", with: 'password'
     fill_in "user_password_confirmation", with: 'password'
-    click_button "Create Account"
+    expect { click_button "Create Account" }
+      .to change { ActionMailer::Base.deliveries.count }.by(1)
+    user = User.last
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as first_name last_name")
     expect(page).to have_content("This account has not yet been activated. Please check your email")
-    user = User.last
     expect(user.active?).to eq(false)
     expect(page).to have_content("Status: Inactive")
-    #Ask
-    #implement mailer unit test
+    #Email view logic part in mailer/activation_spec.rb
     visit user_activation_path(user)
     user.reload
     expect(current_path).to eq(dashboard_path)
