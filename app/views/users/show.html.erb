@@ -15,6 +15,7 @@
       <% end %>
   </section>
   <% if current_user.token %>
+    <p><%= link_to "Send an Invite", invite_path %></p>
     <section class='github'>
       <section class='github-repositories'>
       <h1>Github Repositories</h1>
