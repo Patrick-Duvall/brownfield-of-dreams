@@ -20,5 +20,4 @@ class User < ApplicationRecord
   def activate
     update(active: true)
   end
-
 end

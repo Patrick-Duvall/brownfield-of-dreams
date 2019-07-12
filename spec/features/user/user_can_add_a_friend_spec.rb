@@ -6,7 +6,6 @@ require 'webmock_helper'
 describe 'when ' do
   it 'user can add a friend in' do
     user1 = create(:user, token: ENV['GITHUB_OAUTH_TOKEN'])
-    user2 = create(:user, github_id: nil)
     user3 = create(:user, github_id: 35_322_570, github_name: 'Patrick-Duvall') # Patrick
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
