@@ -35,6 +35,17 @@ RSpec.describe "invite page spec" do
       click_on "Send Invite"
 
       expect(page).to have_content("Invalid Github Handle, please try again")
+
+      end
+    it "cannot invite a user with no associated email" do
+      user = create(:user, token: ENV["GITHUB_OAUTH_TOKEN"], github_name: 'PatrickDuvall')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit invite_path
+
+      fill_in 'q[Github Handle]', with: 'tnodland'
+      click_on "Send Invite"
+      expect(page).to have_content("That user does not have an email account associated with their github.")
     end
+
   end
 end

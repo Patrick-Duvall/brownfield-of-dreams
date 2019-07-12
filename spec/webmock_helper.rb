@@ -6,6 +6,7 @@ RSpec.configure do |config|
     following = File.read('fixtures/user_following.json')
     repos = File.read('fixtures/user_repos.json')
     single_user = File.read('fixtures/single_user.json')
+    single_user_no_email = File.read('fixtures/single_user_no_email.json')
     not_found = File.read('fixtures/not_found.json')
     stub_request(:get, 'https://api.github.com/user/repos')
       .to_return(status: 200, body: repos)
@@ -17,5 +18,7 @@ RSpec.configure do |config|
       .to_return(status: 200, body: single_user)
     stub_request(:get, 'https://api.github.com/users/enfgisa;begs')
       .to_return(status: 200, body: not_found)
+    stub_request(:get, 'https://api.github.com/users/tnodland')
+      .to_return(status: 200, body: single_user_no_email)
   end
 end
