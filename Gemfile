@@ -27,11 +27,9 @@ gem 'jquery'
 gem 'omniauth-census', git: 'https://github.com/turingschool-projects/omniauth-census'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+gem 'traceroute'
 gem 'will_paginate'
 gem 'yt', '~> 0.29.1'
-gem 'traceroute'
-
-
 
 group :development, :test do
   gem 'awesome_print'
