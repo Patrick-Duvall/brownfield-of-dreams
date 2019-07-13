@@ -26,15 +26,14 @@ describe 'TutorialSequencer' do
     allow_any_instance_of(User).to receive(:admin?).and_return(true)
     sortable = [video1.id.to_s, video3.id.to_s, video2.id.to_s]
     put "/admin/api/v1/tutorial_sequencer/#{tutorial1.id}",
-    params:
-      { headers:{
-           "Content-Type": 'application/json; charset=utf-8'
-         },
-         tutorial_sequencer: {
-           _json: sortable
-         }
-      }
-      
+        params:
+          { headers: {
+            "Content-Type": 'application/json; charset=utf-8'
+          },
+            tutorial_sequencer: {
+              _json: sortable
+            } }
+
     expect(response).to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)
