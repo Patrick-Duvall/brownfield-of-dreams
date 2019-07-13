@@ -96,8 +96,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    coverband (4.2.1)
-      redis
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -246,7 +244,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.1.2)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -316,6 +313,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    traceroute (0.8.0)
+      rails (>= 3.0.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
@@ -356,7 +355,6 @@ DEPENDENCIES
   capybara
   chromedriver-helper
   coffee-rails (~> 4.2)
-  coverband
   database_cleaner
   factory_bot_rails
   faker
@@ -381,6 +379,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simplecov
+  traceroute
   tzinfo-data
   vcr
   web-console (>= 3.3.0)
