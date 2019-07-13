@@ -1,28 +1,23 @@
 # Brownfield Of Dreams
 
-This is the base repo for a brownfield project used at Turing for Backend Mod 3.
+Brownfield is Ruby on Rails application used to organize YouTube content used for online learning.
 
-Project Spec and Evaluation Rubric: https://github.com/turingschool-examples/brownfield-of-dreams
+Brown Field of Dreams was modified by [Patrick Duvall](https://github.com/Patrick-Duvall) and [Trevor Nodland](https://github.com/tnodland) over two weeks off [This Repository](https://github.com/turingschool-examples/brownfield-of-dreams) using [This Project Board](https://github.com/turingschool-examples/brownfield-of-dreams/projects/1)
 
-### Project Board
+[You can visit a working version of the project here](https://brownfield-of-sorrow.herokuapp.com/)
 
-Students will continue to build on the existing code base using the cards within the following Github Project: https://github.com/turingschool-examples/brownfield-of-dreams/projects/1
+**Learning Goals**
 
-**Learning Goals and Labels**
+Through this project we learned
 
-The cards are labeled in a way that correspond to learning goals or to specific areas you might personally want to focus on.
-
-Cards should be completed from top to bottom in the To Do column. Cards labeled `good first issue` are good as filler work and will allow you to practice common Rails skills.
-
-### About the Project
-
-This is a Ruby on Rails application used to organize YouTube content used for online learning. Each tutorial is a playlist of video segments. Within the application an admin is able to create tags for each tutorial in the database. A visitor or registered user can then filter tutorials based on these tags.
-
-A visitor is able to see all of the content on the application but in order to bookmark a segment they will need to register. Once registered a user can bookmark any of the segments in a tutorial page.
+  * Working with an existing codebase
+  * Making verified API calls
+  * Consuming external APIs
+  * Oauth 
+  * Generating and sending Email data with Rails
+  * Using enviromental variables to sanitize data
 
 ## Local Setup
-
-First you'll need to setup an API key with YouTube and have it defined within `ENV['YOUTUBE_API_KEY']`. There will be one failing spec if you don't have this set up.
 
 Clone down the repo
 ```
@@ -53,14 +48,16 @@ Run the test suite:
 $ bundle exec rspec
 ```
 
-## Technologies
-* [Stimulus](https://github.com/stimulusjs/stimulus)
-* [will_paginate](https://github.com/mislav/will_paginate)
-* [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)
-* [webpacker](https://github.com/rails/webpacker)
-* [vcr](https://github.com/vcr/vcr)
-* [selenium-webdriver](https://www.seleniumhq.org/docs/03_webdriver.jsp)
-* [chromedriver-helper](http://chromedriver.chromium.org/)
+The following API keys are needed in `app/config/application.yml`
+
+  * [YOUTUBE_API_KEY](https://console.developers.google.com/apis/library?project=event-manager-230318&folder&organizationId)
+  * [GITHUB_OAUTH_TOKEN](https://github.com/settings/developers) - Token for testing
+  * [GITHUB_KEY](https://github.com/settings/tokens)
+  * [GITHUB_SECRET](https://github.com/settings/tokens) 
+  * [SENDGRID_USERNAME](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
+  * [SENDGRID_PASSWORD](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
+  
+  Run `mailcatcher` and visit `localhost:1080` to check mail sending capabilities in development.
 
 ### Versions
 * Ruby 2.4.1
