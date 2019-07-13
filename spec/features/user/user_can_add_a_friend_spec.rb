@@ -12,13 +12,13 @@ describe 'when ' do
 
     visit dashboard_path
     within '.github-followers' do
-      expect(page).to have_link('Add Patrick-Duvall to Friends')
-      expect(page).to_not have_link('Add tnodland to Friends')
+      expect(page).to have_button('Add Patrick-Duvall to Friends')
+      expect(page).to_not have_button('Add tnodland to Friends')
     end
 
     expect(user1.friends.count).to eq(0)
     within '.github-following' do
-      click_link('Add Patrick-Duvall to Friends')
+      click_button('Add Patrick-Duvall to Friends')
     end
     expect(current_path).to eq(dashboard_path)
     expect(user1.friends.count).to eq(1)
@@ -28,11 +28,11 @@ describe 'when ' do
     end
 
     within '.github-followers' do
-      expect(page).to_not have_link('Add Patrick-Duvall to Friends')
+      expect(page).to_not have_button('Add Patrick-Duvall to Friends')
     end
 
     within '.github-following' do
-      expect(page).to_not have_link('Add Patrick-Duvall to Friends')
+      expect(page).to_not have_button('Add Patrick-Duvall to Friends')
     end
   end
 end
