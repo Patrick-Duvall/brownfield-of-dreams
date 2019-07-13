@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Repo do
   context 'attributes' do
     it 'has the proper attributes' do
       repo_info = {
-        :name => 'Trevor',
-        :html_url => 'www.ebsite.com'
+        name: 'Trevor',
+        html_url: 'www.ebsite.com'
       }
 
       repo = Repo.new(repo_info)
