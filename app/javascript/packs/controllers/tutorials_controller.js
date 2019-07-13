@@ -34,6 +34,7 @@ export default class extends Controller {
 
   updateOrder(event) {
     event.preventDefault();
+    debugger;
     fetch(`/admin/api/v1/tutorial_sequencer/${event.target.id}`, {
       method: "PUT",
       headers: {
