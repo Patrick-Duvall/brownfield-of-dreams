@@ -19,6 +19,14 @@ class Admin::TutorialsController < Admin::BaseController
     redirect_to edit_admin_tutorial_path(tutorial)
   end
 
+  def destroy
+    if current_user
+      tutoral = Tutorial.find(params[:id])
+      tutoral.destroy
+      redirect_to admin_dashboard_path
+    end
+  end
+
   private
 
   def tutorial_params
