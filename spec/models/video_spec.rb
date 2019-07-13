@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require "rake"
+require 'rake'
 
 RSpec.describe Video, type: :model do
   context 'validations' do
