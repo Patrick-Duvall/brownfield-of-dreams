@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Coverband::Reporters::Web.new, at: '/coverage'
   namespace :api do
     namespace :v1 do
       resources :tutorials, only: %i[show index]
