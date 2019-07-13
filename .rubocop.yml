@@ -12,6 +12,9 @@ AllCops:
     - bin/**/*
     - lib/tasks/**/*
     - Rakefile
+    - app/controllers/users_controller.rb
+    - app/controllers/invite_controller.rb
+
 
 
 Style/ClassAndModuleChildren:
@@ -28,3 +31,5 @@ Metrics/LineLength:
   Exclude:
     - spec/**/*
     - app/controllers/admin/api/v1/tutorial_sequencer_controller.rb
+    - app/controllers/user/activation_controller.rb
+    - app/mailers/invite_mailer.rb

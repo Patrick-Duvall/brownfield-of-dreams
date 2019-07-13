@@ -6,7 +6,7 @@ class UserShowFacade
   end
 
   def activation_status
-    @user.active? ? "Active" : "Inactive"
+    @user.active? ? 'Active' : 'Inactive'
   end
 
   def friends
@@ -43,9 +43,8 @@ class UserShowFacade
 
   def bookmarked_videos
     Video.joins(:user_videos, :tutorial)
-    .where("user_videos.user_id = #{@user.id}")
-    .includes(:tutorial)
-
+         .where("user_videos.user_id = #{@user.id}")
+         .includes(:tutorial)
 
     # @user.videos
   end
