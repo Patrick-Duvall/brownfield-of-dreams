@@ -2,9 +2,14 @@
 
 class UsersController < ApplicationController
   def show
-    render locals: {
-      user: UserShowFacade.new(current_user)
-    }
+    if current_user
+      render locals: {
+        user: UserShowFacade.new(current_user)
+      }
+    else
+      redirect_to login_path
+      flash[:failure] = "Please Login to Visit your Profile"
+    end
   end
 
   def new
